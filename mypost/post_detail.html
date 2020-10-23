@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post detail</title>
+</head>
+<body>
+    <h3>{{ memories.user }}</h3>
+    <img src="{{ memories.image.url }}" width="350" height="350" alt="">
+    <hr>
+    <a href=""> {{memories.likes.count}} Like</a>
+    <hr>
+
+    <br>
+    <h2>Comments....</h2>
+
+    <form action="{% url 'post_detail' memories.id %}" method="POST" >
+        {% csrf_token  %}
+        <textarea name="comment"  placeholder="Enter your comment here" rows="4" cols="50"></textarea>
+        <input type="submit" value="Comment">
+    </form>
+
+    {% if not memories.comments.all %}
+        No Comment Yet..... 
+    {% else %}
+
+    {% for comment in memories.comments.all %}
+
+    <strong>
+        {{ comment.name }} - 
+        {{ comment.date }}
+    </strong>
+    <br>
+    {{ comment.body }}
+
+
+    {% endfor %}
+
+    {% endif %}
+    
+</body>
+</html>

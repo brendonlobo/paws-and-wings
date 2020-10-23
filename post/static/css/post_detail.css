@@ -1,0 +1,161 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Inconsolata', monospace;
+}
+
+.main{
+    margin-top: 50px;
+}
+
+.profile{
+    height: 320px;
+    /* width: 20%; */
+    margin-left: 3%;
+    margin-right: 3%;
+    background-color:rgb(248, 247, 247);
+    float: left;
+    text-align: center;
+    box-shadow: 5px 5px 5px rgba(145, 136, 136, 0.4);
+}
+
+
+.post{
+    width: 60%;
+    background-color:rgb(248, 247, 247);
+    /* float: left; */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 5px 5px  rgba(145, 136, 136, 0.4);
+}
+
+.circle img{
+	background-position: 50%;
+	background-size: cover;
+	height: 90px;
+	width: 90px;
+    border-radius: 50%;
+    background-color: red;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.circle img{
+    background-size: cover;
+}
+
+#name{
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+#bio{
+   padding: 8px;
+   color: grey; 
+}
+
+#address{
+    font-size: 20px;
+    font-weight: 500;
+
+}
+
+
+.circle1 img{
+	background-position: 50%;
+	background-size: cover;
+	height: 60px;
+	width: 60px;
+    border-radius: 50%;
+    background-color: red;
+    float: left;
+}
+
+.profilepost{
+    margin: 10px;
+    
+}
+
+.profilepost p{
+  padding-top: 20px;
+  padding-left: 70px;    
+}
+
+.profilepost h6{
+    padding-top: 5px;
+    padding-left: 70px;    
+    font-size: 12px;
+  }
+
+.img-post img{
+    padding: 10px;
+    height: 600px;
+    width: 100%;
+}
+
+.post p{
+    margin: 10px;
+    line-height: 20px;
+}
+
+
+.sharing{
+    margin: 10px;
+}
+
+.sharing .ico{
+    margin: 5px;
+    font-size: 25px;
+}
+
+.far , .fa ,.fab{
+	cursor:pointer;
+}
+.far:hover{
+	color: darkblue;	
+}
+.fa:hover{
+    color: darkblue;
+}
+.fab:hover{
+    color: darkblue;
+}
+
+
+
+textarea{
+    width: 95%;
+    height: 100px;
+    font-size: 16px;
+    padding: 10px;
+    color: black;
+}
+
+#comment_btn{
+    background-color: #6495ED;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+#user{
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+}
+
+#date{
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+}
+.content {
+    font-size: 16px;
+    color: grey;
+    line-height: 25px;
+}
+
+
+

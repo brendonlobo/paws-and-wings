@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paws and Wings</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="	sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
+  	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/"><i class="fa fa-paw" aria-hidden="true"></i> Paws And Wings</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="/" >Home </a></li>
+	        <li><a href="/about">About <i class="fa fa-question" aria-hidden="true"></i></a></li>
+	        <li><a href="/contact">Contact <i class="fa fa-mobile" aria-hidden="true"></i></a></li>
+	      </ul>
+	    
+	      {% if user.is_authenticated %}
+		 <ul class="nav navbar-nav navbar-right">
+	        <li><a href="">{{ user }} <i class="fa fa-user" aria-hidden="true"></i></a></li>
+		  </ul>
+		  {% else %}
+		  <ul class="nav navbar-nav navbar-right">
+	        <li><a href="/login">Login <i class="fa fa-user" aria-hidden="true"></i></a></li>
+		  </ul>
+		{% endif %}
+		
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="container">
+		<div class="content">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1> Paws and Wings</h1>
+					<h3>Because every life matters!</h3>
+					<hr>
+					<form>
+					<button class="btn btn-default btn-lg" type="submit" formaction="/post"><i class="fa fa-paw" aria-hidden="true"></i> Get Started</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<footer>
+		<div class="footer-section">
+			<h4>Follow Us</h4>
+            <ul class="social-network social-circle">
+             <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+			 <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+			 <li><a href="#" class="icoLinkedin" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+			</ul>	
+			<br><br>
+			<div class="row">
+				<div class="col-md-12 copy">
+					<p class="text-center">&copy; Copyright 2020 - Lobo Production.  All rights reserved.</p>
+				</div>
+			</div>
+	  </footer>
+		</div>
+	</footer>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"> </script>
+</body>
+</html>

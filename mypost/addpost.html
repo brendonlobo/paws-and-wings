@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello add here</h1>
+    <form action="{% url 'add_post' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="textarea" name="post">
+        <input type="file" name="image">
+        <input type="submit" value="Submit">
+    </form>
+    <a href="/post">Back</a>
+</body>
+</html>

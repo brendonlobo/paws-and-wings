@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main_page.css' %}">
+    <title>Paws and Wings</title>
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/"><i class="fa fa-paw" aria-hidden="true"></i> Paws And Wings</a>
+          </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/post"><i class="fa fa-list" aria-hidden="true"></i> Feed <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/add_post"><i class="fa fa-list" aria-hidden="true"></i> Upload a post <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/user_profile"><i class="fas fa-user"></i> Profile</a>
+            </li>
+            </li>
+          </ul>
+          <a href="/logout">Logout </a>
+        </div>
+      </nav>
+ 
+      <div class="main">
+        <div class="profile">
+            <div class="circle">
+                <img src="{% static 'css/img1.jpg' %}" alt="">
+              </div>
+              <p id="name"><a id="name_anc" href="/user_profile">{{user}}</a></p>
+            <p id="bio">A Student expanding his capabilities everyday! lorem20 </p>
+            <p id="address">Mumbai, Maharastra</p>               
+        </div>  
+  
+      
+
+        {% for post in memories %}  
+
+        <div class="post">
+          <div class="profilepost">
+              <div class="circle1">
+                  <img src="{% static 'css/img1.jpg' %}" alt="">
+              </div>
+              <p>{{post.user}}</p>
+              <h6>Posted On {{ post.date }}</h6>
+          </div> 
+          <hr>
+          <p>{{post.content}}</p>
+          <div class="img-post">
+              <img src="{{ post.image.url }}" alt="image">
+          </div>
+          <hr>
+          
+          <form action="{% url 'like_post_btn' post.pk %}">
+            {% csrf_token %}
+            <button type="submit" name="post_id" ,value="{{ post.id }}" ><p id="likes">{{ post.likes.count }} Likes</p></button>
+          </form>
+          <div class="sharing">
+              <i class="far fa-heart ico" aria-hidden="true"></i>
+              <a href="{% url 'post_detail' post.pk %}"> <i class="far fa-comment-dots ico"></i></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+                <i class="fab fa-facebook ico"></i>
+              </a>
+            </div>
+        </div>
+  
+        {% endfor %}
+      </div>
+
+      
+    
+</body>
+</html>

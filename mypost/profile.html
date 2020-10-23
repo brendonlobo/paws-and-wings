@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <title>Paws and Wings-Profile</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><i class="fa fa-paw" aria-hidden="true"></i> Paws And Wings</a>
+          </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="container">
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="main_page.html"><i class="fa fa-list" aria-hidden="true"></i> Feed <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="adopt.html"><i class="fa fa-child"></i> Adopt</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pet.html"><i class="fas fa-dog"></i> Pet</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            </li>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+   <div class="main_div">
+    <div class="profile_set">
+        <div class="profilepost">
+            <div class="profile-image">
+                <img src="{% static 'css/img1.jpg' %}" alt="">
+            </div>
+        </div>
+        <div class="namebio">
+            <p id="name">Chandler Bing</p>
+            <p id="bio">A Student expanding his capabilities everyday! </p>
+        </div>
+    </div>
+
+    
+
+    {% for post in memories %}  
+    <div class="post-img">
+        <div class="namedate">
+            <h4>Chandler Bing</h4>
+            <h6>{{post.date}}</h6>
+        </div><hr>
+        <p>{{ post.content }}</p>
+        <hr>
+        <img src="{{ post.image.url }}"><hr>
+        <hr>
+        <div class="sharing">
+            <i class="far fa-heart ico" aria-hidden="true"></i>
+            <i class="far fa-comment-dots ico"></i>
+            <i class="fa fa-share ico" aria-hidden="true"></i>
+            <i class="far fa-bookmark ico"></i>
+            <i class="fab fa-whatsapp ico"></i>
+          </div>
+    </div>
+
+    {% endfor %}
+   
+    
+</body>
+</html>
